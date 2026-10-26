@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angel Anchor · Strategy</title>
+  <meta name="description" content="Angel Anchor: an AI agent that lets Angel One's investors borrow against their holdings instead of selling them, and manages that credit line for its life. A strategy proposal by Vishad Tyagi.">
+  <link rel="icon" href="assets/img/anchor.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#top" aria-label="Angel Anchor, back to top">
+        <img class="brand__logo" src="assets/img/angel-one-logo.svg" alt="Angel One" width="107" height="22"
+             onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__text',textContent:'Angel One'}))">
+        <span class="brand__sep" aria-hidden="true"></span>
+        <span class="brand__name">Angel Anchor</span>
+      </a>
+      <nav class="site-nav" aria-label="Sections">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Menu"><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+        <ul class="site-nav__list" id="nav-list">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#placement">Placement</a></li>
+          <li><a href="#agent">The agent</a></li>
+          <li><a href="#why">Why now</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#value">Value</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="journey.html">Watch the journey</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero on-ink" id="top" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div>
+          <h1 id="hero-title">Angel Anchor</h1>
+          <p class="hero__sub">An AI agent that lets Angel One's investors borrow against their holdings instead of selling them, and manages that credit line for its life.</p>
+          <p class="hero__author">Vishad Tyagi · Case: AI agent monetization strategy</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="journey.html">Watch the full journey</a>
+            <a class="btn btn--ghost" href="#overview">Read the strategy</a>
+          </div>
+        </div>
+        <div>
+          <a class="hero__phone" href="journey.html" aria-label="Phone preview: as an investor starts a mutual fund redemption, the Angel Anchor banner offers to borrow ₹1.5 lakh for about ₹49 a day instead. Open the full journey.">
+            <div class="phone-fit hero-phone" aria-hidden="true">
+              <div class="phone">
+                <div class="phone__screen">
+                  <div class="phone__status">
+                    <span class="phone__icons"><i></i><i></i></span>
+                    <span class="phone__notch"></span>
+                    <span class="phone__illus">Illustrative</span>
+                  </div>
+                  <div class="app-bar">
+                    <img class="app-bar__logo" src="assets/img/angel-one-logo.svg" alt="" width="97" height="20"
+                         onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'app-bar__text',textContent:'Angel One'}))">
+                    <span class="app-bar__title">Redeem</span>
+                  </div>
+                  <div class="app-body hero-loop">
+                    <p class="a-sub">Mutual fund</p>
+                    <h3 class="a-h">Flexicap Equity Fund</h3>
+                    <div class="a-big">₹2,80,000</div>
+                    <div class="a-label">Amount to redeem</div>
+                    <div class="a-input">₹1,50,000</div>
+                    <div class="a-btn">Confirm redemption</div>
+                    <div class="anchor-banner">
+                      <span class="anchor-chip"><svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="3.6" r="1.4"/><path d="M8 5v8.5M5.5 7.5h5M3.5 9.5c0 2.3 2 3.9 4.5 3.9s4.5-1.6 4.5-3.9"/></g></svg>Angel Anchor</span>
+                      <p style="font-size:19px">Borrow ₹1.5 lakh for about ₹49 a day and stay invested.</p>
+                      <div class="a-btns"><div class="a-btn">See how</div><div class="a-btn a-btn--ghost">Continue redeeming</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <p class="hero__phone-cap">Illustrative figures. Tap the phone to watch the full journey.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.2 Overview -->
+    <section class="section" id="overview" aria-labelledby="overview-title">
+      <div class="container">
+        <h2 id="overview-title">Four questions, four answers</h2>
+        <p class="section__lead">The strategy on one screen.</p>
+        <div class="grid grid--2">
+          <article class="card">
+            <span class="qa-card__q">What</span>
+            <h3>Own-book LAS, run by an agent</h3>
+            <p>Meets investors when they need cash, runs the journey, manages collateral for life.</p>
+          </article>
+          <article class="card">
+            <span class="qa-card__q">Why</span>
+            <h3>Idle assets, costly cash</h3>
+            <p>Investors sell or borrow at ~19% APR while ₹1.7 lakh cr in custody earns little.</p>
+          </article>
+          <article class="card">
+            <span class="qa-card__q">How</span>
+            <h3>Model talks, rules decide</h3>
+            <p>An AI layer over rules engines, wired to CDSL, the RTAs and Angel Fincap.</p>
+          </article>
+          <article class="card">
+            <span class="qa-card__q">Monetization</span>
+            <h3>Free to users, ₹74 cr a year</h3>
+            <p>By Year 3: ₹40 cr extra LAS profit, ₹20 cr commissions, ₹14 cr cost savings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.3 Placement -->
+    <section class="section section--alt" id="placement" aria-labelledby="placement-title">
+      <div class="container">
+        <h2 id="placement-title">Placement: where the agent sits</h2>
+        <p class="section__lead">Angel One already distributes credit, funds margin trading and holds its clients' assets. The question is where an agent can act and earn.</p>
+
+        <div class="stats">
+          <div class="stat"><p class="stat__num">₹33 bn</p><p class="stat__label">Credit distribution run rate, September 2026 record</p></div>
+          <div class="stat"><p class="stat__num">7</p><p class="stat__label">Partner lenders; no first-loss guarantee</p></div>
+          <div class="stat"><p class="stat__num">₹74.5 bn</p><p class="stat__label">Average MTF book, Q2 FY27, up 40.5% YoY</p></div>
+          <div class="stat"><p class="stat__num">₹1.5 bn</p><p class="stat__label">Capital earmarked for Angel Fincap's LAS, now in beta</p></div>
+          <div class="stat"><p class="stat__num">40 mn</p><p class="stat__label">Clients on the platform</p></div>
+          <div class="stat"><p class="stat__num">₹1.7 trn</p><p class="stat__label">Assets under custody, equity and mutual funds</p></div>
+        </div>
+
+        <div class="block">
+          <div class="table-wrap">
+            <table class="table">
+              <caption>LAS: where an agent can act and earn</caption>
+              <thead>
+                <tr><th scope="col">Dimension</th><th scope="col">Credit distribution</th><th scope="col" class="col-blue">LAS (own book)</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Revenue</th><td>One-time commission</td><td class="col-blue">Recurring interest plus fee</td></tr>
+                <tr><th scope="row">Underwriting</th><td>Partner lender</td><td class="col-blue">Angel Fincap</td></tr>
+                <tr><th scope="row">What an agent can do</th><td>Recommend, then hand off</td><td class="col-blue">Run the journey, manage collateral</td></tr>
+                <tr><th scope="row">Reach</th><td>Any creditworthy user</td><td class="col-blue">Users with pledgeable holdings</td></tr>
+                <tr><th scope="row">Risk to Angel One</th><td>None on book</td><td class="col-blue">Collateral-backed</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="band"><p>LAS is the hero product; partner loans are the fallback for users LAS cannot fully serve.</p></div>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title" id="route-title">One job, two routes: secured first</h3>
+          <div class="toggle-group" role="group" aria-labelledby="route-title">
+            <button class="toggle" type="button" data-route="covers" aria-pressed="true">Holdings cover the need</button>
+            <button class="toggle" type="button" data-route="short" aria-pressed="false">Holdings fall short</button>
+          </div>
+          <div class="route" id="route" data-active="covers">
+            <div class="node"><h4>Need for cash</h4></div>
+            <div class="conn conn--trunk" aria-hidden="true"><i></i></div>
+            <div class="node node--blue"><h4>Eligibility engine</h4><p>Compares the LAS limit with the need</p></div>
+            <div class="conn conn--trunk" aria-hidden="true"><i></i></div>
+            <div class="route__split">
+              <div class="route__branch route__branch--blue">
+                <div class="conn" aria-hidden="true"><i></i></div>
+                <div class="node node--blue">
+                  <span class="route__phase">Phase 1</span>
+                  <h4>Own-book LAS</h4>
+                  <p>Limit covers the need: full journey and lifecycle agent</p>
+                </div>
+              </div>
+              <div class="route__branch route__branch--orange">
+                <div class="conn" aria-hidden="true"><i></i></div>
+                <div class="node node--orange">
+                  <span class="route__phase">Phase 2</span>
+                  <h4>All matching offers</h4>
+                  <p>Short or ineligible: LAS included, ranked by APR, user chooses</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="visually-hidden" id="route-status" aria-live="polite"></p>
+          <p class="caption">RBI Digital Lending Directions: all matching offers must be shown; no promoting one lender, no dark patterns.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.4 The agent -->
+    <section class="section" id="agent" aria-labelledby="agent-title">
+      <div class="container">
+        <h2 id="agent-title">The agent: what it is and who it serves</h2>
+        <p class="definition">Angel Anchor gets investors money against their holdings at the lowest cost, then manages that credit line for its life.</p>
+        <p><span class="pill pill--orange">Prepares and guides; the user authorises; the system executes.</span></p>
+
+        <div class="block">
+          <div class="table-wrap">
+            <table class="table">
+              <caption>Ask Angel versus Angel Anchor</caption>
+              <thead>
+                <tr><th scope="col"><span class="visually-hidden">Dimension</span></th><th scope="col">Ask Angel (today)</th><th scope="col">Angel Anchor</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Role</th><td>Answers questions</td><td>Runs a credit product end to end</td></tr>
+                <tr><th scope="row">Initiative</th><td>Responds when asked</td><td>Responds and acts proactively</td></tr>
+                <tr><th scope="row">Lifespan</th><td>One query</td><td>The life of the credit line</td></tr>
+                <tr><th scope="row">Entry point</th><td>Separate product</td><td>Cash requests typed into Ask Angel route here</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Two halves of the job</h3>
+          <div class="halves">
+            <div class="card">
+              <h4>The moment of need</h4>
+              <ol>
+                <li>Detects or receives the need for cash.</li>
+                <li>Computes the limit from holdings and haircuts.</li>
+                <li>Shows the borrowing cost, and tax on selling when borrowing is cheaper.</li>
+                <li>Pre-fills from existing KYC and holdings.</li>
+                <li>The user reviews the KFS, e-signs and approves the pledge by OTP.</li>
+                <li>Angel Fincap sanctions and the money goes to the user's own bank.</li>
+              </ol>
+            </div>
+            <div class="card">
+              <h4>The life of the loan</h4>
+              <ul>
+                <li><strong>Collateral monitoring:</strong> daily, warnings before a margin call.</li>
+                <li><strong>Shortfall guidance:</strong> amount, deadline, cure options; Angel Fincap decides any invocation.</li>
+                <li><strong>Repayment nudges:</strong> from dividends, sale and redemption proceeds.</li>
+                <li><strong>Limit hygiene:</strong> renewals, pledges, releases; higher limits only on the user's request.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Messaging rules</h3>
+          <div class="variants">
+            <figure class="variant" style="margin:0">
+              <h4>When LAS is cheaper</h4>
+              <div class="mini-phone">
+                <div class="mini-phone__screen">
+                  <span class="mini-phone__illus">Illustrative</span>
+                  <div class="notif">
+                    <span class="anchor-chip"><svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="3.6" r="1.4"/><path d="M8 5v8.5M5.5 7.5h5M3.5 9.5c0 2.3 2 3.9 4.5 3.9s4.5-1.6 4.5-3.9"/></g></svg>Angel Anchor</span>
+                    <p>Selling these units could attract about ₹9,750 in tax. Borrowing ₹1.5 lakh against them costs about ₹49 a day, and your investments stay invested.</p>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <figure class="variant" style="margin:0">
+              <h4>When selling is cheaper</h4>
+              <div class="mini-phone">
+                <div class="mini-phone__screen">
+                  <span class="mini-phone__illus">Illustrative</span>
+                  <div class="notif">
+                    <span class="anchor-chip"><svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="3.6" r="1.4"/><path d="M8 5v8.5M5.5 7.5h5M3.5 9.5c0 2.3 2 3.9 4.5 3.9s4.5-1.6 4.5-3.9"/></g></svg>Angel Anchor</span>
+                    <p>Need cash? Borrow up to ₹1.5 lakh against your holdings for about ₹49 a day and stay invested.</p>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </div>
+          <ul class="pill-row" style="margin-top:24px" aria-label="Messaging rules">
+            <li class="pill">Tax shown only when LAS is cheaper</li>
+            <li class="pill">Never recommends selling</li>
+            <li class="pill">Tax is an estimate</li>
+            <li class="pill">KFS before sign-off</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="table-wrap">
+            <table class="table">
+              <caption>Who it serves</caption>
+              <thead>
+                <tr><th scope="col">Segment</th><th scope="col">Who they are</th><th scope="col">Routed to</th><th scope="col">Phase</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">A. Long-term holders</th><td>Sizeable delivery equity or MF holdings, often SIP-active</td><td>Own-book LAS</td><td>1</td></tr>
+                <tr><th scope="row">B. Liquidity need</th><td>Redemptions or sales followed by a withdrawal to bank</td><td>Own-book LAS</td><td>1</td></tr>
+                <tr><th scope="row">C. Loan seekers with assets</th><td>Browsing partner loans while holding eligible securities</td><td>LAS among all offers, by APR</td><td>1</td></tr>
+                <tr><th scope="row">D. Thin holdings</th><td>Creditworthy, little to pledge</td><td>Partner offers, by APR</td><td>2</td></tr>
+                <tr><th scope="row">E. AP-channel clients</th><td>Served through Authorised Persons</td><td>Same flows, with an AP copilot</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Three people, three routes</h3>
+          <div class="grid grid--3">
+            <article class="card persona">
+              <h4>Rohit, 34</h4>
+              <p class="persona__meta">Salaried, Pune · Segment B</p>
+              <dl>
+                <div><dt>Holdings</dt><dd>₹6 lakh in stocks and MFs</dd></div>
+                <div><dt>Need</dt><dd>₹1.5 lakh for a wedding</dd></div>
+                <div><dt>Trigger</dt><dd>As he starts a redemption, a live banner shows his limit and the tax if he sells.</dd></div>
+                <div><dt>Agent</dt><dd>Borrowing costs less than the tax, so he stays invested.</dd></div>
+              </dl>
+              <a class="persona__link" href="journey.html">Watch Rohit's journey</a>
+            </article>
+            <article class="card persona">
+              <h4>Meena, 45</h4>
+              <p class="persona__meta">Small business owner · Segment A</p>
+              <dl>
+                <div><dt>Holdings</dt><dd>₹15 lakh portfolio</dd></div>
+                <div><dt>Need</dt><dd>Working capital for two to three months</dd></div>
+                <div><dt>Trigger</dt><dd>She asks Ask Angel for working capital.</dd></div>
+                <div><dt>Agent</dt><dd>Runs LAS as a revolving line and prompts repayment when proceeds arrive.</dd></div>
+              </dl>
+            </article>
+            <article class="card persona">
+              <h4>Arjun, 27</h4>
+              <p class="persona__meta">New investor · Segment D</p>
+              <dl>
+                <div><dt>Holdings</dt><dd>₹40,000 in MFs</dd></div>
+                <div><dt>Need</dt><dd>₹1 lakh</dd></div>
+                <div><dt>Trigger</dt><dd>He browses personal loans in the app.</dd></div>
+                <div><dt>Agent</dt><dd>He is not LAS-eligible, so it shows all matching partner offers, ranked by APR.</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.5 Why build it, and why now -->
+    <section class="section section--alt" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <h2 id="why-title">Why build it, and why now</h2>
+
+        <div class="block">
+          <h3 class="block__title">The customer problem</h3>
+          <div class="stats">
+            <div class="stat"><p class="stat__num stat__num--sm">18.88%</p><p class="stat__label">APR on an illustrative personal loan in Angel One's app</p></div>
+            <div class="stat"><p class="stat__num stat__num--sm">10.45–15.28%</p><p class="stat__label">APR on Angel One's LAS; interest only on what is drawn</p></div>
+            <div class="stat"><p class="stat__num stat__num--sm">Under 1%</p><p class="stat__label">Loans against MFs as a share of MF assets, industry estimate</p></div>
+          </div>
+          <div class="table-wrap" style="margin-top:24px">
+            <table class="table table--narrow">
+              <caption>Raising ₹1.5 lakh for 3 months</caption>
+              <thead><tr><th scope="col">Option</th><th scope="col">Cost</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Borrow via LAS at 12%, fee included</th><td class="num">₹6,270</td></tr>
+                <tr><th scope="row">Sell long-held funds, 50% gain (12.5% LTCG)</th><td class="num">₹9,750 in tax</td></tr>
+                <tr><th scope="row">Sell a 10-month holding, 10% gain (20% STCG)</th><td class="num">₹2,840 in tax</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="caption">The answer differs by user, and few run the numbers. The agent runs them for every user.</p>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">The business problem</h3>
+          <div class="grid grid--2">
+            <article class="card"><h4>Revenue leans on broking</h4><p>About two-thirds of income through FY25; FY26 profit fell 21.9% to ₹915 cr under F&amp;O rules.</p></article>
+            <article class="card"><h4>Distribution rides on lenders</h4><p>₹6.1 bn in Q4 FY26, down ~15% QoQ; volumes follow partners' risk appetite.</p></article>
+            <article class="card"><h4>Holdings sit idle</h4><p>1% of custody assets drawn as LAS is ~₹17 bn, about 23% of today's MTF book.</p></article>
+            <article class="card"><h4>Capital is committed</h4><p>₹1.5 bn earmarked for Angel Fincap; adoption, not capital, is now the constraint.</p></article>
+          </div>
+          <div class="band"><p><em>Why an agent:</em> LAS needs RM-style servicing. Angel One has ~3,050 employees for ~40 million clients. An agent scales horizontally to serve all of them at a fraction of the cost.</p></div>
+        </div>
+
+        <div class="block">
+          <div class="table-wrap">
+            <table class="table">
+              <caption>Why now</caption>
+              <thead><tr><th scope="col">Force</th><th scope="col">Evidence</th><th scope="col">So what</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">LAS launch</th><td>Beta now; scale-up guided for Q3–Q4 FY27</td><td>Build the agent in, not as a retrofit</td></tr>
+                <tr><th scope="row">Competition</th><td>Groww: LAS was 35% of on-book credit disbursements in Q1 FY27</td><td>Pledges are portable; the best experience wins</td></tr>
+                <tr><th scope="row">Regulation</th><td>₹1 crore LAS ceiling; tighter LTV rules from 1 July 2026</td><td>More monitoring per borrower: the agent's job</td></tr>
+                <tr><th scope="row">AI guardrails</th><td>RBI FREE-AI: 7 principles, 26 recommendations</td><td>Design to a known standard from day one</td></tr>
+                <tr><th scope="row">Collateral growth</th><td>MF assets ₹82.64 lakh cr; record ₹32,490 cr monthly SIPs, Sep 2026</td><td>The base grows without acquisition spend</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.6 How it works -->
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <h2 id="how-title">How it works</h2>
+
+        <div class="block">
+          <h3 class="block__title">Model talks, rules decide, systems act</h3>
+          <p>Select any box to see what it does.</p>
+          <div class="arch">
+            <div class="arch__stack" id="arch">
+              <div class="arch__layer">
+                <span class="arch__layer-name">App surfaces</span>
+                <div class="arch__row">
+                  <button class="arch__box" type="button" data-arch="surfaces" aria-pressed="false"><b>App surfaces</b><span>Portfolio screen, banners, Ask Angel hand-off, alerts</span></button>
+                </div>
+              </div>
+              <div class="arch__layer">
+                <span class="arch__layer-name">Agent orchestrator</span>
+                <div class="arch__row">
+                  <button class="arch__box arch__box--orange" type="button" data-arch="ai" aria-pressed="false"><b>AI model</b><span>Understands and explains</span></button>
+                  <button class="arch__box arch__box--orange" type="button" data-arch="guardrails" aria-pressed="false"><b>Guardrails</b><span>Consent, audit log, action limits</span></button>
+                </div>
+              </div>
+              <div class="arch__layer">
+                <span class="arch__layer-name">Rules engines</span>
+                <div class="arch__row">
+                  <button class="arch__box arch__box--blue" type="button" data-arch="eligibility" aria-pressed="false"><b>Eligibility</b><span>Limit and haircuts</span></button>
+                  <button class="arch__box arch__box--blue" type="button" data-arch="cost" aria-pressed="false"><b>Cost and tax</b><span>Interest, fee, estimated tax</span></button>
+                  <button class="arch__box arch__box--blue" type="button" data-arch="ltv" aria-pressed="false"><b>LTV monitor</b><span>Event-driven, daily</span></button>
+                  <button class="arch__box arch__box--blue" type="button" data-arch="nudge" aria-pressed="false"><b>Nudge engine</b><span>Triggers and templates</span></button>
+                </div>
+              </div>
+              <div class="arch__layer">
+                <span class="arch__layer-name">Integration layer</span>
+                <div class="arch__row">
+                  <button class="arch__box arch__box--ink" type="button" data-arch="integration" aria-pressed="false"><b>Integration layer</b><span>APIs and an event stream</span></button>
+                </div>
+              </div>
+              <div class="arch__layer">
+                <span class="arch__layer-name">Systems of record</span>
+                <div class="arch__row">
+                  <button class="arch__box" type="button" data-arch="platform" aria-pressed="false"><b>Angel One platform</b><span>Holdings, KYC, events</span></button>
+                  <button class="arch__box" type="button" data-arch="fincap" aria-pressed="false"><b>Angel Fincap</b><span>Sanction, KFS, e-sign</span></button>
+                  <button class="arch__box" type="button" data-arch="rails" aria-pressed="false"><b>CDSL, CAMS and KFintech</b><span>Pledge and lien</span></button>
+                  <button class="arch__box arch__box--dashed" type="button" data-arch="partners" aria-pressed="false"><b>Partner lenders</b><span>Offers, Phase 2</span></button>
+                </div>
+              </div>
+            </div>
+            <div class="arch__panel" id="arch-panel" aria-live="polite">
+              <h4 id="arch-panel-title">Select a box</h4>
+              <p id="arch-panel-text">Each layer has one job. Select any box in the diagram to read what it does in plain language.</p>
+            </div>
+          </div>
+          <p class="caption">The AI model never calculates. Every number comes from a rules engine and is checked before the customer sees it.</p>
+        </div>
+
+        <div class="block">
+          <div class="highlight">
+            <h3>Angel One holds both ends of the pledge.</h3>
+            <p>Angel One is the CDSL depository participant for its own clients. Since 15 July 2026, DPs must approve LAS pledge requests the same day, so Angel One can make that step close to instant. For mutual funds, liens go by API to CAMS or KFintech and the investor confirms by OTP.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Rollout</h3>
+          <ol class="steps">
+            <li>
+              <div class="card">
+                <p class="card__tag">Phase 0 · months 0–3</p>
+                <p>Build the four engines, connect CDSL and RTA flows, run the LTV monitor in shadow mode on the beta book.</p>
+                <p class="steps__gate"><strong>Exit:</strong> engine figures match Angel Fincap's exactly; every real margin call caught earlier; compliance sign-off.</p>
+              </div>
+            </li>
+            <li>
+              <div class="card">
+                <p class="card__tag">Phase 1 · months 3–6</p>
+                <p>Conversational journey, banners, shortfall alerts and repayment nudges for eligible users, with a human operations fallback.</p>
+              </div>
+            </li>
+            <li>
+              <div class="card card--dashed">
+                <p class="card__tag">Phase 2 · months 6–12, gated by results</p>
+                <p>Partner-loan offers ranked by APR; Account Aggregator income checks for higher-limit requests (purpose code 103); AP copilot, with an operations copilot as the alternative.</p>
+                <p class="steps__gate"><strong>Gates:</strong> zero engine mismatches; earlier alerts, few false alarms; better cure rates; complaints within target.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title" id="sm-title">A state machine drives every alert</h3>
+          <div class="sm" id="sm">
+            <ol class="sm__states" aria-label="Loan states">
+              <li class="sm__state sm__state--healthy is-current" data-state="healthy"><h4>Healthy</h4><p>LTV within policy: repayment nudges and limit offers.</p></li>
+              <li class="sm__state sm__state--watch" data-state="watch"><h4>Watch</h4><p>Early-warning level: warns and shows how far prices can fall.</p></li>
+              <li class="sm__state sm__state--shortfall" data-state="shortfall"><h4>Shortfall</h4><p>Margin-call level: states amount and deadline; offers cure options.</p></li>
+              <li class="sm__state sm__state--cured" data-state="cured"><h4>Cured</h4><p>LTV restored by the user: confirms and returns to Healthy.</p></li>
+              <li class="sm__state sm__state--invoked" data-state="invoked"><h4>Invoked</h4><p>Deadline missed or hard breach: informs the user; Angel Fincap sells per its policy.</p></li>
+            </ol>
+            <div class="sm__side">
+              <div class="mini-phone">
+                <div class="mini-phone__screen">
+                  <span class="mini-phone__illus">Illustrative</span>
+                  <div class="notif" id="sm-notif" style="margin-top:16px">
+                    <div class="notif__head">
+                      <span class="anchor-chip"><svg viewBox="0 0 16 16" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="3.6" r="1.4"/><path d="M8 5v8.5M5.5 7.5h5M3.5 9.5c0 2.3 2 3.9 4.5 3.9s4.5-1.6 4.5-3.9"/></g></svg>Angel Anchor</span>
+                      <span class="a-tag a-tag--ok" id="sm-tag">Healthy</span>
+                    </div>
+                    <p id="sm-msg">Dividend of ₹12,000 credited. Repaying it cuts about ₹4 a day in interest.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sm__controls" role="group" aria-labelledby="sm-title">
+              <button class="toggle" type="button" data-sm="fall">Simulate a market fall</button>
+              <button class="toggle" type="button" data-sm="pledge">Pledge more</button>
+              <button class="toggle" type="button" data-sm="miss">Miss the deadline</button>
+              <button class="toggle" type="button" data-sm="reset">Reset</button>
+            </div>
+            <p class="sm__status" id="sm-status" aria-live="polite">Current state: Healthy.</p>
+          </div>
+          <p class="caption">Orange states are agent alerts; grey is lender action. All thresholds are Angel Fincap policy parameters. Customer messages are illustrative.</p>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Compliance, built in</h3>
+          <div class="grid grid--2">
+            <article class="card"><h4>Digital Lending Directions</h4><p>KFS before sign-off, a cooling-off period, data in India, disbursal only to the borrower's account, higher limits only on request.</p></article>
+            <article class="card"><h4>Multi-lender rule</h4><p>Every matching offer shown, unbiased, ranked by a published metric.</p></article>
+            <article class="card"><h4>DPDP Act</h4><p>Notice and consent duties apply from 13 May 2027; consent notices built into the journeys now.</p></article>
+            <article class="card"><h4>RBI FREE-AI</h4><p>Board-approved AI policy, audit trail of engine calls, messages and authorisations.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.7 Value -->
+    <section class="section section--alt" id="value" aria-labelledby="value-title">
+      <div class="container">
+        <h2 id="value-title">Value: how it is monetized</h2>
+
+        <div class="block">
+          <ol class="vtl">
+            <li><div class="card"><p class="card__tag">Immediate</p><h4>Cost savings and efficiency</h4><p>Servicing without an RM team, faster journeys, fewer forced sales.</p></div></li>
+            <li><div class="card"><p class="card__tag">Years 1–3</p><h4>Attributable increase</h4><p>Extra LAS income and partner disbursals above a holdout baseline.</p></div></li>
+            <li><div class="card"><p class="card__tag">Once mature</p><h4>Licensing</h4><p>To Angel One's lending partners first, then outside lenders.</p></div></li>
+            <li><div class="card card--dashed"><p class="card__tag">Indirect</p><h4>A larger book</h4><p>Co-lending and credit on UPI.</p></div></li>
+          </ol>
+          <div class="band"><p>The agent claims only what it adds above a holdout baseline, never the LAS fee or partner commissions themselves.</p></div>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title" id="cost-title">Servicing cost: bank-style versus agent</h3>
+          <div class="toggle-group" role="group" aria-labelledby="cost-title">
+            <button class="toggle" type="button" data-cost="bank" aria-pressed="true">Bank-style model</button>
+            <button class="toggle" type="button" data-cost="agent" aria-pressed="false">With Angel Anchor</button>
+          </div>
+          <div class="cost">
+            <div class="bars" id="cost-bars">
+              <div class="bar" data-bank="17" data-agent="3.4" data-bank-label="~213 RMs, ~₹17 cr a year" data-agent-label="~43 operations staff, ~₹3.4 cr a year">
+                <div class="bar__label"><span>Servicing and shortfall staff</span><b class="bar__val"></b></div>
+                <div class="bar__track"><span class="bar__fill"></span><span class="bar__ghost" title="Bank-style level"></span></div>
+              </div>
+              <div class="bar" data-bank="2000" data-agent="400" data-bank-label="~₹2,000 a year" data-agent-label="~₹400 a year">
+                <div class="bar__label"><span>Cost per borrower</span><b class="bar__val"></b></div>
+                <div class="bar__track"><span class="bar__fill"></span><span class="bar__ghost"></span></div>
+              </div>
+              <div class="bar" data-bank="3.4" data-agent="2.6" data-bank-label="~₹3.4 cr" data-agent-label="~₹2.6 cr">
+                <div class="bar__label"><span>Credit losses</span><b class="bar__val"></b></div>
+                <div class="bar__track"><span class="bar__fill"></span><span class="bar__ghost"></span></div>
+              </div>
+            </div>
+            <div>
+              <p class="cost__headline">~80%</p>
+              <p><strong>lower servicing cost per borrower</strong></p>
+              <p class="caption" id="cost-status" aria-live="polite">Showing the bank-style model. The thin line marks the bank-style level.</p>
+            </div>
+          </div>
+          <p class="caption">Assumptions: base-case book ₹1,700 cr, ~85,000 borrowers at ₹2 lakh average; one RM per 400 accounts at ~₹8 lakh a year fully loaded; the agent handles ~80% of interactions.</p>
+        </div>
+
+        <div class="block tabs">
+          <h3 class="block__title" id="sc-title">Year 3 scenarios</h3>
+          <div role="tablist" aria-labelledby="sc-title" id="sc-tabs">
+            <button class="toggle" type="button" role="tab" id="tab-conservative" aria-controls="sc-panel" aria-selected="false" tabindex="-1" data-sc="conservative">Conservative</button>
+            <button class="toggle" type="button" role="tab" id="tab-base" aria-controls="sc-panel" aria-selected="true" data-sc="base">Base</button>
+            <button class="toggle" type="button" role="tab" id="tab-ambitious" aria-controls="sc-panel" aria-selected="false" tabindex="-1" data-sc="ambitious">Ambitious</button>
+          </div>
+          <div role="tabpanel" id="sc-panel" aria-labelledby="tab-base" tabindex="0">
+            <div class="scenario scenario--base" id="sc-grid">
+              <div><p class="scenario__val" data-k="book">₹1,700 cr</p><p class="scenario__label">Average LAS book</p></div>
+              <div><p class="scenario__val" data-k="interest">₹204 cr</p><p class="scenario__label">Interest income</p></div>
+              <div><p class="scenario__val" data-k="net">₹101 cr</p><p class="scenario__label">Net revenue</p></div>
+              <div><p class="scenario__val" data-k="profit">₹81 cr</p><p class="scenario__label">Pre-tax profit</p></div>
+            </div>
+            <p class="scenario__note" id="sc-note">Base: 1% of custody assets.</p>
+          </div>
+
+          <div class="grid grid--3" style="margin-top:24px">
+            <div class="stat" style="border:1px solid var(--line);border-radius:16px"><p class="stat__num stat__num--sm">₹40 cr</p><p class="stat__label">Pre-tax from extra LAS lending</p></div>
+            <div class="stat" style="border:1px solid var(--line);border-radius:16px"><p class="stat__num stat__num--sm">₹20 cr</p><p class="stat__label">Extra partner commissions (2% on a ₹1,000 cr lift)</p></div>
+            <div class="stat" style="border:1px solid var(--line);border-radius:16px"><p class="stat__num stat__num--sm">₹14 cr</p><p class="stat__label">Servicing and credit-loss savings a year</p></div>
+          </div>
+          <p class="caption">Base case. Assumptions: 12% yield; 75% of the book borrowed at 8.75%; fees 0.5%, operating cost 1%, credit cost 0.2% of book.</p>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Benchmarks</h3>
+          <div class="card">
+            <div class="bars" role="list" aria-label="Benchmark multipliers, drawn to scale">
+              <div class="bar" role="listitem">
+                <div class="bar__label"><span>McKinsey survey, personalisation</span><b>×1.10–1.15 revenue</b></div>
+                <div class="bar__track"><span class="bar__fill bar__fill--range" style="--v:.3833"></span><span class="bar__fill" style="--v:.3667"></span></div>
+              </div>
+              <div class="bar" role="listitem">
+                <div class="bar__label"><span>Axis Bank with Adobe, personalised offers</span><b>×1.15–1.25 conversion</b></div>
+                <div class="bar__track"><span class="bar__fill bar__fill--range" style="--v:.4167"></span><span class="bar__fill" style="--v:.3833"></span></div>
+              </div>
+              <div class="bar" role="listitem">
+                <div class="bar__label"><span>Our base case, moment-of-need agent</span><b>×2 LAS adoption</b></div>
+                <div class="bar__track"><span class="bar__fill bar__fill--orange" style="--v:.6667"></span></div>
+              </div>
+              <div class="bar" role="listitem">
+                <div class="bar__label"><span>Commonwealth Bank with Pega, event-triggered conversations</span><b>×3</b></div>
+                <div class="bar__track"><span class="bar__fill" style="--v:1"></span></div>
+              </div>
+            </div>
+            <p class="caption">Bars are drawn to scale by multiplier; lighter segments show the top of a range.</p>
+          </div>
+          <div class="grid grid--2" style="margin-top:24px">
+            <article class="card"><h4>Klarna</h4><p>Its assistant handled two-thirds of chats in month one.</p></article>
+            <article class="card"><h4>Bank of America's Erica</h4><p>Over 98% of users find what they need.</p></article>
+          </div>
+          <p class="caption">Figures are company-, vendor- or survey-reported; the holdout group replaces them with Angel One's own evidence.</p>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Measurement plan</h3>
+          <p class="definition" style="font-size:clamp(22px,2.4vw,30px);max-width:44ch">5–10% of eligible users are held out. They keep the standard LAS journey and every regulatory notice, including margin calls; only the agent is withheld.</p>
+          <div class="grid grid--3">
+            <article class="card"><p class="card__tag">First 3 months</p><ul class="small"><li>Share of servicing handled by the agent</li><li>Resolution time</li><li>Cost per interaction</li><li>Time to disbursal</li></ul></article>
+            <article class="card"><p class="card__tag">Months 3–6</p><ul class="small"><li>Limit set-up rate and money drawn</li><li>Banner-to-application conversion</li><li>Alert lead time</li><li>Shortfall cure rate</li></ul></article>
+            <article class="card"><p class="card__tag">Months 6–12</p><ul class="small"><li>LAS book uplift</li><li>Forced-sale rate</li><li>Credit cost</li><li>Partner-disbursal uplift</li></ul></article>
+          </div>
+        </div>
+
+        <div class="block">
+          <h3 class="block__title">Beyond Year 3</h3>
+          <div class="grid grid--3">
+            <article class="card"><h4>License the agent</h4><p class="small">Stage 1: Angel One's lending partners; platform fee plus a per-active-loan fee. Stage 2, an option: outside lenders.</p></article>
+            <article class="card card--dashed"><h4>Grow the book</h4><p class="small">Co-lending under RBI rules from January 2026; credit on UPI if NBFCs are allowed.</p></article>
+            <article class="card"><h4>LAS product changes the agent amplifies</h4><p class="small">Fee on first withdrawal, rates by collateral quality, free renewal for active borrowers.</p></article>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="table-wrap">
+            <table class="table">
+              <caption>Risks and controls</caption>
+              <thead><tr><th scope="col">Risk</th><th scope="col">Control</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">The model states a wrong figure</th><td>Engines compute every number; each is checked against its engine before display</td></tr>
+                <tr><th scope="row">A market crash floods alerts</th><td>Event-driven monitor; alerts by severity; a human operations team from day one</td></tr>
+                <tr><th scope="row">LAS cannibalises MTF</th><td>LAS ceiling of 14% stays below MTF's 14.99%; money goes only to bank accounts</td></tr>
+                <tr><th scope="row">Funding costs rise</th><td>Co-lending reduces exposure and capital needs</td></tr>
+                <tr><th scope="row">Benchmarks are self-reported</th><td>The holdout group gives Angel One its own evidence within months</td></tr>
+                <tr><th scope="row">Regulatory scope</th><td>Confirm how 2026 LAS rules and the AP route apply; operations copilot as the fallback</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.8 Closing -->
+    <section class="section section--ink closing on-ink" id="closing" aria-labelledby="closing-title">
+      <div class="container">
+        <h2 id="closing-title">Angel One already owns the customer, the collateral and the lender. Angel Anchor connects them.</h2>
+        <ol>
+          <li>Start Phase 0: build the four engines on the LAS beta book.</li>
+          <li>Run shadow mode for three months against real margin calls.</li>
+          <li>Launch to long-term holders, measured against a holdout group.</li>
+        </ol>
+        <a class="btn btn--primary" href="journey.html">Watch the journey</a>
+      </div>
+    </section>
+
+    <!-- 5.9 Sources -->
+    <section class="sources" id="sources" aria-label="Sources">
+      <div class="container">
+        <details>
+          <summary>Sources</summary>
+          <ol>
+            <li><a href="https://za.investing.com/news/stock-market-news/earnings-call-transcript-angel-one-posts-strong-q2-2026-profit-growth-93CH-4507923" rel="noopener">Angel One Q2 FY27 earnings call transcript (Investing.com)</a></li>
+            <li><a href="https://nsearchives.nseindia.com/corporate/ANGEL8896_15072026175453_15072026Press_Release_AOL.pdf" rel="noopener">Angel One Q1 FY27 press release (NSE)</a></li>
+            <li><a href="https://www.equitybulls.com/category.php?id=369134" rel="noopener">Angel One FY26 audited results (Equitybulls)</a></li>
+            <li><a href="https://www.crisil.com/mnt/winshare/Ratings/RatingList/RatingDocs/AngelOneLimited_April%2029_%202025_RR_367454.html" rel="noopener">CRISIL rating rationale for Angel One</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.msf.angelmobile&amp;hl=en_IN" rel="noopener">Angel One app listing with LAS terms (Google Play)</a></li>
+            <li><a href="https://www.amfiindia.com/uploads/AMFI_Monthly_Note_September2026_554f6604b6.pdf" rel="noopener">AMFI monthly note, September 2026</a></li>
+            <li><a href="https://www.smallcase.com/learn/lamf-market-india-outlook/" rel="noopener">India LAMF market estimate (smallcase)</a></li>
+            <li><a href="https://www.kotakneo.com/news/stocks/groww-q1-fy-27-results-net-profit-revenue-july-2026/" rel="noopener">Groww Q1 FY27 results (Kotak Neo)</a></li>
+            <li><a href="https://www.rbi.org.in/scripts/BS_CircularIndexDisplay.aspx?Id=12848" rel="noopener">RBI (Digital Lending) Directions, 2025</a></li>
+            <li><a href="https://www.rbi.org.in/scripts/FS_Publications.aspx?id=1306" rel="noopener">RBI FREE-AI committee report</a></li>
+            <li><a href="https://www.cdslindia.com/LAS/LAS.html" rel="noopener">CDSL LAS framework</a></li>
+            <li><a href="https://teamleaseregtech.com/updates/article/57870/cdsl-introduced-loan-against-securities-las-module-in-easiest/" rel="noopener">CDSL LAS module (TeamLease RegTech)</a></li>
+            <li><a href="https://www.business-standard.com/finance/news/rbi-revises-co-lending-norms-mandates-10-loan-retention-loss-guarantee-125080601927_1.html" rel="noopener">RBI co-lending directions (Business Standard)</a></li>
+            <li><a href="https://www.cxtoday.com/contact-center/klarna-claims-its-new-ai-assistant-does-the-work-of-700-full-time-agents/" rel="noopener">Klarna AI assistant (CX Today)</a></li>
+            <li><a href="https://newsroom.bankofamerica.com/content/newsroom/press-releases/2025/08/a-decade-of-ai-innovation--bofa-s-virtual-assistant-erica-surpas.html" rel="noopener">Bank of America Erica</a></li>
+          </ol>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__row">
+      <p>Concept prototype prepared for a case submission by Vishad Tyagi. Not an Angel One product. Figures are illustrative or drawn from public sources listed on this site.</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

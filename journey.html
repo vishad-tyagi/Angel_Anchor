@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rohit's journey · Angel Anchor</title>
+  <meta name="description" content="An illustrative walkthrough of Angel Anchor on a phone: from starting a mutual fund redemption, through the agent's banner, to borrowing and the life of the loan.">
+  <link rel="icon" href="assets/img/anchor.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="journey-page">
+  <a class="skip-link" href="#main">Skip to the journey</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Angel Anchor strategy home">
+        <img class="brand__logo" src="assets/img/angel-one-logo.svg" alt="Angel One" width="107" height="22"
+             onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__text',textContent:'Angel One'}))">
+        <span class="brand__sep" aria-hidden="true"></span>
+        <span class="brand__name">Angel Anchor</span>
+      </a>
+      <a class="btn btn--ghost btn--sm" href="index.html">Back to the strategy</a>
+    </div>
+  </header>
+
+  <main id="main" class="container journey">
+    <div class="journey__intro">
+      <div>
+        <h1>Rohit's journey</h1>
+        <p>From starting a redemption, through the agent's banner, to borrowing and the life of the loan. <span class="kbd-hint">Space plays or pauses; the arrow keys step through scenes.</span></p>
+      </div>
+    </div>
+
+    <nav class="scenes" aria-label="Scenes">
+      <h2>Scenes</h2>
+      <ol id="scene-list"></ol>
+    </nav>
+
+    <section class="stage" aria-label="Phone walkthrough">
+      <div class="stage__phone">
+        <div class="phone-fit">
+          <div class="phone" aria-hidden="true">
+            <div class="phone__screen" id="screen">
+              <div class="phone__status">
+                <span class="phone__icons"><i></i><i></i></span>
+                <span class="phone__notch"></span>
+                <span class="phone__illus">Illustrative</span>
+              </div>
+              <div class="app-bar">
+                <img class="app-bar__logo" src="assets/img/angel-one-logo.svg" alt="" width="97" height="20"
+                     onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'app-bar__text',textContent:'Angel One'}))">
+                <span class="app-bar__title" id="app-title"></span>
+              </div>
+              <div class="app-body" id="app-body"></div>
+            </div>
+          </div>
+        </div>
+        <div class="endcard" id="endcard" hidden>
+          <div class="endcard__box on-ink" role="status">
+            <p>Rohit kept ₹6 lakh invested, avoided about ₹9,750 in tax, and resolved a market dip without a forced sale.</p>
+            <button class="btn btn--primary" type="button" id="replay">Replay</button>
+            <a class="btn btn--ghost on-ink" href="index.html">Back to the strategy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+      <div class="controls" role="group" aria-label="Playback controls">
+        <button class="ctrl" type="button" id="prev" aria-label="Previous scene">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="ctrl ctrl--play" type="button" id="play" aria-pressed="false">
+          <svg viewBox="0 0 20 20" aria-hidden="true" id="play-icon"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg>
+          <span id="play-label">Play</span>
+        </button>
+        <button class="ctrl" type="button" id="next" aria-label="Next scene">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="ctrl" type="button" id="restart">Restart</button>
+        <div class="speed" role="group" aria-label="Playback speed">
+          <button type="button" data-speed="1" aria-pressed="true">1×</button>
+          <button type="button" data-speed="1.5" aria-pressed="false">1.5×</button>
+        </div>
+      </div>
+
+      <p class="stage__cap">Illustrative figures. Thresholds and pricing follow Angel Fincap's policy.</p>
+    </section>
+
+    <aside class="narration" aria-label="Narration">
+      <div class="narration__card" aria-live="polite">
+        <p class="narration__step" id="n-step"></p>
+        <h2 id="n-title"></h2>
+        <h3>What Rohit sees</h3>
+        <p id="n-sees"></p>
+        <div class="narration__agent">
+          <h3>What the agent does</h3>
+          <p id="n-agent"></p>
+        </div>
+      </div>
+
+      <div class="strip">
+        <h3>Behind the screen</h3>
+        <p class="strip__legend">Orange: AI model. Blue: rules engines. Grey: systems.</p>
+        <div id="strip"></div>
+        <p class="visually-hidden" id="strip-sr" aria-live="polite"></p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__row">
+      <p>Concept prototype prepared for a case submission by Vishad Tyagi. Not an Angel One product. Figures are illustrative or drawn from public sources listed on this site.</p>
+      <a href="index.html#sources">Sources</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/journey.js"></script>
+</body>
+</html>
